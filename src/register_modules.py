@@ -9,7 +9,7 @@ app_register = Blueprint('app_register', __name__, template_folder='templates')
 def register():
     session['first_name'] = request.form['first_name']
     session['email'] = request.form['email']
-    session['password'] = request.form['password']
+    session['password'] = "request.form['password']"
     user_type = session['user_type'] = request.form['user_type']
     if user_type == 'Speaker':
         session['last_name'] = request.form['last_name']

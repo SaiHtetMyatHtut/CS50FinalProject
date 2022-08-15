@@ -20,14 +20,10 @@
   <div class="flex flex-col flex-grow h-20 px-2.5 py-1">
     <p class="text-gray-700 text-base font-bold">{{concert.start_time}}</p>
     <p class="text-xs text-gray-500 font-bold overflow-y-scroll scrollbar-hide">
-      <span class="text-red-400">{{concert.speaker_name}}</span> is on <span class="text-sm text-yellow-400">{{concert.host_name}}</span> been the industry's standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, . . . Lorem Ipsum has been the
-      industry's standard dummy text ever since the 1500s, when an unknown
-      printer took a galley of type and scrambled it to make a type specimen
-      book. It has survived not only five centuries, but also the leap into
-      electronic typesetting, . . .
+      <span class="text-red-400">{{concert.speaker_name}}</span> <br>
+      {{concert.host_description}}
+      <br><span class="text-sm text-yellow-400">{{concert.host_name}}</span> <br>
+      {{concert.speaker_description}}
     </p>
   </div>
   <a href="/concert/{{concert.concert_id}}" class="flex items-center justify-center bg-red-400 w-full h-[50px] rounded-md text-white font-bold">
