@@ -1,0 +1,38 @@
+{% macro concertCard(concert) -%}
+<div class="flex flex-col bg-white w-full h-80 rounded-md shadow-md p-2">
+  <div
+    class="relative h-[120px] bg-cover rounded-md"
+    style="background-image: url('{{concert.host_image_url}}')"
+  >
+    <div
+      class="flex flex-row absolute bottom-1 h-[60px] w-full items-center px-2"
+    >
+      <div
+        class="flex flex-col items-center justify-center w-12 h-12 p-0.5 bg-gray-50 shadow rounded-md"
+      >
+        <img
+          class="w-full flex-1 rounded-md bg-cover"
+          src='{{concert.speaker_image_url}}'
+        />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col flex-grow h-20 px-2.5 py-1">
+    <p class="text-gray-700 text-base font-bold">{{concert.start_time}}</p>
+    <p class="text-xs text-gray-500 font-bold overflow-y-scroll scrollbar-hide">
+      <span class="text-red-400">{{concert.speaker_name}}</span> is on <span class="text-sm text-yellow-400">{{concert.host_name}}</span> been the industry's standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book. It has survived not only five centuries, but
+      also the leap into electronic typesetting, . . . Lorem Ipsum has been the
+      industry's standard dummy text ever since the 1500s, when an unknown
+      printer took a galley of type and scrambled it to make a type specimen
+      book. It has survived not only five centuries, but also the leap into
+      electronic typesetting, . . .
+    </p>
+  </div>
+  <a href="/concert/{{concert.concert_id}}" class="flex items-center justify-center bg-red-400 w-full h-[50px] rounded-md text-white font-bold">
+    Watch Now
+  </a>
+  
+</div>
+{%- endmacro %}

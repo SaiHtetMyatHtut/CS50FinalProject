@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html'%} {% block title %}Hope Zone | Home{% endblock%}
+{% from "components/search_bar.html" import searchBar %} {% block body %}
+<div
+  class="flex flex-row px-32 py-5 h-full"
+  x-data="{clickIndex : -1, isClicked:false,speakerName:'', speakerEmail:'',speakerPhone:'',speakerFacebook:''}"
+>
+  <div class="flex flex-col flex-1">
+    {{ searchBar("/speakers/search", "Search Speaker Name") }}
+    <div
+      class="flex flex-col w-full h-full px-6 pt-2 text-white font-bold space-y-1"
+    >
+      {% for speaker in data %}
+      <a href="/speaker/{{speaker.id}}"
+        class="flex flex-row w-full px-5 py-2 rounded-md hover:bg-white hover:bg-opacity-30"
+      >
+        <p>{{ speaker.first_name + " " + speaker.last_name}}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-BoldIt.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Thin.ttf');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Thin.ttf');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-ThinIt.ttf');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Medium.ttf'); 
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-SemiBoldIt.ttf');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Black.ttf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-RegularIt.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-MediumIt.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-BlackIt.ttf');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-ExtraBoldIt.ttf');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-ThinIt.ttf');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Proxima Soft';
+    src: url('../fonts/ProximaSoft-ExtraBold.ttf');
+    font-weight: 800;
+    font-style: normal;
+}
+

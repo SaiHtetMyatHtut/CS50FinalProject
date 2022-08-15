@@ -1,0 +1,147 @@
+{% extends 'layouts/base.html'%} {% block title %}Hope Zone | Host Register{%
+endblock%}
+{% from "components/rounded_profile.html" import roundedProfile %} 
+{% block body %}
+<div class="flex items-center justify-center w-full h-full" >
+  <div class="flex flex-col bg-white w-[400px] rounded-md shadow-md p-12">
+    <p class="flex items-center justify-center font-bold text-red-400 text-4xl">
+      Register
+    </p>
+
+    <form
+      action="/register_confirm"
+      class="flex flex-col space-y-3"
+      method="post"
+      enctype="multipart/form-data"
+      
+    >
+      <div class="flex flex-row justify-center items-center h-24 pt-3">
+        {{roundedProfile()}}
+      </div>
+      <div class="flex flex-col space-y-1 items-start justify-start">
+        <p class="text-sm font-medium leading-tight text-gray-700">
+          Phone Number
+        </p>
+        {{ form.phone(class_="leading-normal w-full px-3 py-2 bg-white shadow
+        border rounded-md border-gray-300")}}
+      </div>
+      <div class="flex flex-col space-y-1 items-start justify-start h-full">
+        <p class="text-sm font-medium leading-tight text-gray-700">
+          Facebook Link
+        </p>
+        {{ form.facebook_url(class_="leading-normal w-full px-3 py-2 bg-white
+        shadow border rounded-md border-gray-300")}}
+      </div>
+
+      <!-- dropdown -->
+      <div
+        @click.away="isOpen=false"
+        class="relative"
+        x-data="
+                { 
+                    isOpen: false,
+                    sortType:'Choose One', 
+                    sortTypes: ['South Dagon','North Dagon',]
+                }
+                "
+      >
+        <p class="text-sm font-medium leading-tight text-gray-700 mb-1">
+          State
+        </p>
+        <div
+          @click="isOpen=!isOpen"
+          class="flex w-full items-center justify-start px-3 py-2 bg-white shadow border rounded-md border-gray-300"
+        >
+          <input type="hidden" name="state" :value="sortType" />
+          <span
+            x-text="sortType"
+            class="flex-grow text-start font-medium text-gray-700"
+          >
+            Choose One</span
+          >
+          <svg
+            class="h-5 w-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            :class="{'rotate-180': isOpen, 'rotate-0': !isOpen}"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div
+          x-show="isOpen"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="transform opacity-0 scale-95"
+          x-transition:enter-end="transform opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-75"
+          x-transition:leave-start="transform opacity-100 scale-100"
+          x-transition:leave-end="transform opacity-0 scale-95"
+          class="absolute z-50 w-full origin-top-right"
+        >
+          <div class="bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+            <div class="flex flex-col" :class="{'p-2': isOpen, '': !isOpen}">
+              <div
+                @click="sortType=sortTypes[0],isOpen=!isOpen"
+                x-show="sortType != sortTypes[0]"
+                :class="{'p-2': isOpen, '': !isOpen}"
+                class="flex flex-row items-start rounded-lg bg-transparent hover:bg-gray-200"
+                href="#"
+              >
+                <p class="font-medium text-gray-700" x-text="sortTypes[0]"></p>
+              </div>
+
+              <div
+                @click="sortType=sortTypes[1],isOpen=!isOpen"
+                x-show="sortType != sortTypes[1]"
+                :class="{'p-2': isOpen, '': !isOpen}"
+                class="flex flex-row items-start rounded-lg bg-transparent hover:bg-gray-200"
+                href="#"
+              >
+                <p class="font-medium text-gray-700" x-text="sortTypes[1]"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- dropdown -->
+      <div class="flex flex-col space-y-1 items-start justify-start h-full">
+        <p class="text-sm font-medium leading-tight text-gray-700">Address</p>
+        {{ form.address(class_="leading-normal w-full px-3 py-2 bg-white shadow
+        border rounded-md border-gray-300")}}
+      </div>
+      
+      <div class="flex flex-col space-y-1 items-start justify-start h-full">
+        <p class="text-sm font-medium leading-tight text-gray-700">Description</p>
+        {{ form.description(class_="leading-normal w-full px-3 py-2 bg-white shadow
+        border rounded-md border-gray-300")}}
+      </div>
+
+      <div class="h-1"></div>
+      <button
+        class="flex space-x-2.5 items-center justify-center p-4 bg-red-400 shadow rounded-md hover:shadow-md hover:bg-red-500 w-full"
+        style="height: 52px"
+        type="submit"
+      >
+        <p class="text-xl font-bold text-white">Continue</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 fill-white"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

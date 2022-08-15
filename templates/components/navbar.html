@@ -1,0 +1,37 @@
+{% macro navbarComponent() -%} {% set titleStyle = "w-min mx-3
+hover:text-red-500 " %}
+<div class="flex flex-row px-32 bg-white h-full">
+  <div class="w-[250px] h-full items-center justify-center flex">
+    <p class="text-red-400 text-3xl font-bold">
+      Hope<span class="text-yellow-400">Zone</span>
+    </p>
+  </div>
+  <div class="flex flex-grow h-full justify-center items-center">
+    <ul
+      class="flex items-center justify-center w-min h-full text-center font-bold text-red-400"
+    >
+      <li
+        class="{{titleStyle}}{%if request.endpoint=='index'%}text-yellow-400{%endif%}"
+      >
+        <a href="{{ url_for('index') }}">HOME</a>
+      </li>
+      <li
+        class="{{titleStyle}}{%if request.endpoint=='app_host.host'%}text-yellow-400{%endif%}"
+      >
+        <a href="{{ url_for('app_host.host') }}">HOSTS</a>
+      </li>
+      <li
+        class="{{titleStyle}}{%if request.endpoint=='app_speaker.speaker'%}text-yellow-400{%endif%}"
+      >
+        <a href="{{ url_for('app_speaker.speaker') }}">SPEAKERS</a>
+      </li>
+      <li
+        class="{{titleStyle}}{%if request.endpoint=='app_concert.concert'%}text-yellow-400{%endif%}"
+      >
+        <a href="{{ url_for('app_concert.concert') }}">CONCERTS</a>
+      </li>
+    </ul>
+  </div>
+  <div class="w-60"></div>
+</div>
+{%- endmacro %}

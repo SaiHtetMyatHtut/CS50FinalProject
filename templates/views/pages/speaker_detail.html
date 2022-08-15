@@ -1,0 +1,80 @@
+{% extends 'layouts/base.html'%} {% block title %}Hope Zone | Login{% endblock%}
+{% from "components/concert_card.html" import concertCard %} {% block body %}
+<div class="flex flex-row w-full h-full font-bold px-44 py-6 text-white">
+  <div class="flex w-3/6 flex-col space-y-3">
+    <div class="flex flex-row w-full justify-start">
+      <img
+        class="rounded-lg h-[200px] bg-contain aspect-square"
+        src="{{speaker.image_id}}"
+        alt="speaker profile"
+      />
+    </div>
+    <div class="flex flex-1 flex-col items-start">
+      <p class="text-3xl">{{speaker.first_name +' '+ speaker.last_name}}</p>
+      <p class="flex text-s font-bold overflow-y-scroll scrollbar-hide">
+        {{speaker.description}}
+      </p>
+    </div>
+    <div class="flex flex-shrink flex-1 flex-col justify-end space-y-2">
+      <div class="flex w-full h-1 rounded-full bg-white"></div>
+      <p>
+        Email:
+        <a href="mailto:{{speaker.email}}" class="text-yellow-200"
+          >{{speaker.email}}</a
+        >
+      </p>
+      <p>
+        Phone:
+        <a href="tel:{{speaker.phone}}" class="text-yellow-200"
+          >{{speaker.phone}}</a
+        >
+      </p>
+      <p>
+        Facebook:
+        <a href="{{speaker.facebook_link}}" class="text-yellow-200"
+          >{{speaker.facebook_link}}</a
+        >
+      </p>
+      <div class="flex w-full h-1 rounded-full bg-white"></div>
+    </div>
+    <div class="flex flex-row space-x-5 justify-start">
+      <button
+        class="flex text-white items-center justify-center w-24 h-20 bg-yellow-400 rounded-lg hover:bg-yellow-500 hover:shadow-md"
+      >
+        Update
+      </button>
+      <button
+        type="button"
+        id="delete-btn"
+        data-id="{{ speaker.id }}"
+        class="flex text-white items-center justify-center w-24 h-20 bg-yellow-400 rounded-lg hover:bg-yellow-500 hover:shadow-md"
+      >
+        Delete
+      </button>
+      <button
+        class="flex text-white items-center justify-center w-24 h-20 bg-yellow-400 rounded-lg hover:bg-yellow-500 hover:shadow-md"
+      >
+        Book
+      </button>
+    </div>
+  </div>
+  <div class="w-4/6 pl-12 text-white h-full overflow-y-scroll scrollbar-hide">
+    <div class="grid grid-cols-2 gap-4 max-h-[400px]">
+      {% for concert in concerts %} {{concertCard(concert)}} {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+  const deleteBtn = document.getElementById("delete-btn");
+  deleteBtn.onclick = function (e) {
+    const speaker_id = e.target.dataset["id"];
+    fetch("/speaker/" + speaker_id, {
+      method: "DELETE",
+    }).then((response) => {
+      if (response.redirected) {
+        window.location.href = response.url;
+      }
+    });
+  };
+</script>
+{% endblock %}

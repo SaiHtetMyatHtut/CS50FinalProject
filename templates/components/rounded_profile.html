@@ -1,0 +1,21 @@
+{% macro roundedProfile() -%}
+<label
+  x-data="{src:'static/images/background.png'}"
+  for="dropzone-file"
+  class="relative cursor-pointer rounded-full shadow-md bg-white p-1"
+>
+  <input
+    id="dropzone-file"
+    type="file"
+    name="image"
+    class="hidden"
+    @change="src = URL.createObjectURL($event.target.files[0]);"
+  />
+  <img id="preview" class="w-20 h-20 rounded-full shadow-md" :src="src" />
+  <p
+    class="absolute inset-x-0 bottom-3 flex justify-center items-center text-white font-bold text-sm"
+  >
+    Edit
+  </p>
+</label>
+{%- endmacro %}

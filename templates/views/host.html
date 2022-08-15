@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html'%} {% block title %}Hope Zone | Home{% endblock%}
+{% from "components/search_bar.html" import searchBar %} {% block body %}
+
+<div class="flex flex-row px-32 py-5 h-full">
+  <div class="flex flex-col flex-1">
+    {{ searchBar("/hosts/search", "Search Host Name") }}
+    <div
+      class="flex flex-col w-full h-full pl-11 text-white font-bold space-y-2"
+    >
+      {% for state in data %}
+      <p class="text-lg">{{ state.state }}, Yangon, Myanmar</p>
+      <div class="flex flex-row mt-2">
+        <div class="flex w-10 h-full items-center justify-center py-1">
+          <div class="w-1 h-full bg-white rounded-full"></div>
+        </div>
+        <div class="flex flex-col w-full space-y-1">
+          {% for host in state.hosts %}
+          <a
+            href="/host/{{host.id}}"
+            class="flex flex-row w-full px-5 py-2 rounded-md hover:bg-white hover:bg-opacity-30"
+          >
+            {{ host.name }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

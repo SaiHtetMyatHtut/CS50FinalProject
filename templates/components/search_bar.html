@@ -1,0 +1,29 @@
+{% macro searchBar(action, placeholder) -%}
+<div
+  class="relative flex flex-row p-1 items-stretch justify-center h-12 mb-2 w-full"
+>
+  <form action="{{action}}" method="post" class="w-full h-full">
+    <input
+      class="flex flex-row justify-between items-center px-10 h-10 w-full bg-white rounded-md font-bold text-gray-500"
+      placeholder="{{placeholder}}"
+      name="search_keywords"
+    />
+  </form>
+  <span
+    class="flex z-10 h-full leading-snug font-normal absolute text-center text-slate-300 bg-transparent rounded text-base items-center justify-center right-11 inset-auto pb-1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-5 w-5 fill-gray-500"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </span>
+</div>
+{%- endmacro %}
